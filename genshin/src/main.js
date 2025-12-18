@@ -1,7 +1,7 @@
 async function getData(genshin){
     try{
         //go get datat]
-        const response = await fetch(`https://genshin.jmp.blue/"${genshin}`);
+        const response = await fetch(`https://genshin.jmp.blue/${genshin}`);
         //handle errors
         if (response.status != 200){
             throw new Error(response)
@@ -9,7 +9,7 @@ async function getData(genshin){
             //makes the resoponse into json data we can use
             const data = await response.json()
             console.log(data);
-            document.getElementById("api-response").textConetnt = data.name;
+            document.getElementById("api-response").textContent = data;
         }
     } catch(error){
         console.log(error);
