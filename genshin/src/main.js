@@ -19,4 +19,4 @@ async function getData(genshin){
         console.log(error);
     }
     }
-getData("characters/amber");
+getData("characters/xiao");
