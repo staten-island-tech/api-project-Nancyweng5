@@ -1,7 +1,23 @@
-async function getData(genshin){
+const genshin = "`https://genshin.jmp.blue/"
+function inject(items){
+    const genshindata = document.querySelector(".api-response");
+    genshindata.insertAdjacentHTML("beforeend",
+        `<div class = genshindata>
+            <h3>Name: ${items.name}</h3>
+            <h3>Title: ${items.title}</h3>
+            <h3>Vision: ${items.vision}</h3>
+            <h3>Weapon: ${items.weapon}</h3>
+            <h3>Gender: ${items.gender}</h3>
+            <h3>Nation : ${items.nation}</h3>
+            <h3>Affiliation: ${items.affiliation}</h3>
+            <h3>Rarity: ${items.rarity}</h3>
+        </div>`
+    )
+}
+async functi         on getData(genshin){
     try{
-        //go get datat]
-        const response = await fetch(`https://genshin.jmp.blue/${genshin}`);
+        //go get data]
+        const response = await fetch(genshin);
         //handle errors
         if (response.status != 200){
             throw new Error(response)
@@ -9,14 +25,10 @@ async function getData(genshin){
             //makes the resoponse into json data we can use
             const data = await response.json()
             console.log(data);
-            document.getElementById("api-response").textContent =
-            `Name: ${data.name}
-            Vision: ${data.vision}
-            Weapon: ${data.weapon}
-            Rarity: ${data.rarity}`;
+            data.entries.forEach(inject)
         }
     } catch(error){
         console.log(error);
     }
     }
-getData("characters/xiao");
+getData(genshin);
