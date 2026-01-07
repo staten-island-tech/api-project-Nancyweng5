@@ -2,7 +2,7 @@ import "./style.css";
 const URL = "https://genshin.jmp.blue";
 function inject(characters){
     const genshindata = document.querySelector(".api-response");
-    genshindata.insertAdjacentHTML("beforeend",
+    genshindata.insertAdjacentHTML("afterend",
         `<div class = "genshindata">
             <h3 class = "name">Name: ${characters.name}</h3>
             <h3 class = "title">Title: ${characters.title}</h3>
@@ -37,10 +37,10 @@ async function getData(){
 getData();
 
 function searchbar(){
-    const input = document.querySelector(".searchcharacterbyname")
-    const container = document.querySelector(".api-response")
-    const btn = document.querySelector(".btn")
-    btn.addEventListener("click", function (event) {
+    const input = document.querySelector(".searchcharacterbyname");
+    const container = document.querySelector(".api-response");
+    const btn = document.querySelector(".btn");
+    btn.addEventListener("click", async function () {
         const name =input.value.trim()
         container.innerHTML = "";
         if (name === ""){
@@ -48,10 +48,15 @@ function searchbar(){
             return;
         }
         try{
-            const response = await fetch(`${URL}/characters`);
-            if (response.status != 200)
-                container.innerHTML = `<p>Character "${name}" not found`
-        }
-    })
+            const response = await fetch(`${URL}/characters/${name}`);
+            if (response.status != 200){
+                container.innerHTML = `<p>Character "${name}" not found</p>`
+                return;
+            }
+            const data = await response.json();
+            inject(data);
+        } catch{}
+        
+    });
 }
 searchbar()

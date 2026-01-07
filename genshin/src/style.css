@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+@theme{
+    --color-background: #f0e4e4
+    --color-profile: #f9f4f4
+}
+.body{
+    color: var(--color-background)
+}
+.genshindata{
+
+}

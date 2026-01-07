@@ -6,17 +6,21 @@
     <link href="/src/style.css" rel="stylesheet" />
     <title>Genshin</title>
   </head>
-  <body class="bg-white-#f0e4e4">
-    <div class="search">
-      <h2 class="whatcharacter">
-        Character Name :
-        <input type="text" class="searchcharacterbyname" required />
-        <button type="submit" class="btn">Search</button>
-      </h2>
+  <body>
+    <div class="bg-zinc-300">
+      <div class="search">
+        <h2 class="whatcharacter">
+          Character Name :
+          <input type="text" class="searchcharacterbyname" required />
+          <button type="submit" class="btn">Search</button>
+        </h2>
+      </div>
+      <div class="text-3xl font-bold underline">Character Info</div>
+      <div class="bg-stone-50 flex flex-wrap gap-x-4 gap-y-4 m-6">
+        <div class="api-response"></div>
+        <div class="genshindata m-4"></div>
+        <script type="module" src="/src/main.js"></script>
+      </div>
     </div>
-    <div class="text-3xl font-bold underline">Character Info</div>
-    <div class="api-response"></div>
-    <div class="genshindata"></div>
-    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
