@@ -2,8 +2,8 @@ import "./style.css";
 const URL = "https://genshin.jmp.blue";
 function inject(characters){
     const genshindata = document.querySelector(".api-response");
-    genshindata.insertAdjacentHTML("afterend",
-        `<div class = "genshindata">
+    genshindata.insertAdjacentHTML("beforeend",
+        `<div class = "genshindata bg-white rounded-xl shadow-md p-4 w-64 flex flex-col gap-1">
             <h3 class = "name">Name: ${characters.name}</h3>
             <h3 class = "title">Title: ${characters.title}</h3>
             <h3 class = "vision">Vision: ${characters.vision}</h3>

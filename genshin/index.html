@@ -7,18 +7,21 @@
     <title>Genshin</title>
   </head>
   <body>
-    <div class="bg-zinc-300">
-      <div class="search">
-        <h2 class="whatcharacter">
+    <div class="bg-stone-50">
+      <div class="search flex justify-center mt-6">
+        <h2 class="whatcharacter flex items-center gap-2">
           Character Name :
           <input type="text" class="searchcharacterbyname" required />
           <button type="submit" class="btn">Search</button>
         </h2>
       </div>
-      <div class="text-3xl font-bold underline">Character Info</div>
-      <div class="bg-stone-50 flex flex-wrap gap-x-4 gap-y-4 m-6">
-        <div class="api-response"></div>
-        <div class="genshindata m-4"></div>
+      <div class="text-3xl font-bold align-content: center;">
+        Character Info
+      </div>
+      <div class="bg-stone-50">
+        <div
+          class="api-response flex flex-wrap gap-4 m-6 justify-center sm:gap-6 md:gap-8 lg:max-w-[80%] mx-auto"
+        ></div>
         <script type="module" src="/src/main.js"></script>
       </div>
     </div>
